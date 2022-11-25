@@ -13,11 +13,11 @@ namespace MovieApi.Controller
         private readonly IMovieService movieService;
         public MovieController(IMovieService movieService, IPaginator<MovieDto, MovieFilter> pageService)
         {
-            this.movieService = movieService; 
-            this.pageService = pageService; 
+            this.movieService = movieService;
+            this.pageService = pageService;
         }
         [HttpGet]
-        public IActionResult GetPaged([FromQuery] MovieFilter filter)=>Ok( this.pageService.GetPaged(filter));
+        public IActionResult GetPaged([FromQuery] MovieFilter filter) => Ok(this.pageService.GetPaged(filter));
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOne([FromRoute] int id) => Ok(await this.movieService.GetMovieById(id));
 
@@ -36,5 +36,5 @@ namespace MovieApi.Controller
 
         }
     }
-    
+
 }

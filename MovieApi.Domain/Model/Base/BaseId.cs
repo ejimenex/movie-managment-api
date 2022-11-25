@@ -2,8 +2,8 @@
 
 namespace MovieApi.Domain.Model.Base;
 public class BaseId
-    {
-        [Key]
-        public int Id { get; set; }
-    }
+{
+    [Key]
+    public int Id { get; set; }
+}
 

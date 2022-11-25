@@ -2,7 +2,7 @@
 
 namespace MovieApi.BussinesLogic.Profiles
 {
-    public class MoviePostProfile:Profile
+    public class MoviePostProfile : Profile
     {
         public MoviePostProfile()
         {

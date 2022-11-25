@@ -8,6 +8,6 @@ namespace MovieApi.DataAccess.Configuration
         {
             builder.HasMany(c => c.Reviews).WithOne(ad => ad.Movie).HasForeignKey(c => c.MovieId);
         }
-    
+
     }
 }
