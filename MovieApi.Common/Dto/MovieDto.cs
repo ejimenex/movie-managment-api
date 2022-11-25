@@ -11,7 +11,8 @@
         public int TotalHourDuration { get; set; }
         public string ImageUrl { get; set; }
         public int TotalMinuteDuration { get; set; }
-        public decimal RankingAvg { get; set; }
+        public double? RankingAvg { get; set; }
+        public string Duration { get; set; }
         public IEnumerable<MovieReviewDto> Reviews { get; set; }
     }
 }

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MovieApi.BussinesLogic.DependencyInjection
-{
-    internal class ServicesConfiguration
+namespace MovieApi.BussinesLogic.DependencyInjection;
+public static class ServicesConfiguration
     {
+        public static void ConfigureService(this IServiceCollection service)
+    {
+        service.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        service.AddScoped<IMovieService, MovieService>();
+        service.AddScoped<IPaginator<MovieDto,MovieFilter>, MovieService>();
     }
 }
