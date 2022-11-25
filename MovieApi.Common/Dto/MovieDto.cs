@@ -1,6 +1,6 @@
 ﻿namespace MovieApi.Common.Dto
 {
-    public class MovieDto: BaseDto
+    public class MovieDto : BaseDto
     {
         public string Name { get; set; }
         public string Description { get; set; }

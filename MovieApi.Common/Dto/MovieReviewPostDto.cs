@@ -1,6 +1,6 @@
 ﻿namespace MovieApi.Common.Dto
 {
-    public class MovieReviewDto : BaseDto
+    public class MovieReviewPostDto
     {
         public int MovieId { get; set; }
         public int Ranking { get; set; }

@@ -19,17 +19,17 @@ namespace MovieApi.DataAccess.Repository.Repositories
 
         public virtual async Task<int> Create(T entity)
         {
-            
-                entity.CreatedDate = DateTime.Now;
-                entity.IsDeleted = false;                
-                var result = entities.Add(entity);
-                await this.context.SaveChangesAsync();
-                return Convert.ToInt32(result.Property("Id").CurrentValue.ToString());
-                      
+
+            entity.CreatedDate = DateTime.Now;
+            entity.IsDeleted = false;
+            var result = entities.Add(entity);
+            await this.context.SaveChangesAsync();
+            return Convert.ToInt32(result.Property("Id").CurrentValue.ToString());
+
 
         }
 
-      
+
         public virtual async Task Delete(int Id)
         {
             var entity = await GetOne(Id);
@@ -37,10 +37,10 @@ namespace MovieApi.DataAccess.Repository.Repositories
             entity.ModifiedDate = DateTime.Now;
             await this.Update(entity);
         }
-      
+
         public virtual IQueryable<T> FindAll()
         {
-            var result = entities.OrderByDescending(c => c.Id).AsNoTracking();
+            var result = entities.Where(c => !c.IsDeleted).AsNoTracking();
             return result;
         }
 
@@ -49,7 +49,7 @@ namespace MovieApi.DataAccess.Repository.Repositories
             return this.context.Set<T>().Where(expression).AsNoTracking();
         }
 
-        public virtual async Task<T> GetOne(int Id) => await context.Set<T>().AsNoTracking().FirstOrDefaultAsync(c => c.Id == Id);
+        public virtual async Task<T> GetOne(int Id) => await context.Set<T>().AsNoTracking().FirstOrDefaultAsync(c => c.Id == Id && !c.IsDeleted);
 
 
         public virtual async Task<T> Update(T entity)
@@ -60,8 +60,8 @@ namespace MovieApi.DataAccess.Repository.Repositories
             return entity;
         }
 
-        public virtual async Task<bool> Exist(Expression<Func<T, bool>> expression) => (await this.context.Set<T>().AnyAsync(expression));
+        public virtual bool Exist(Expression<Func<T, bool>> expression) => (this.context.Set<T>().Any(expression));
 
-       
+
     }
 }
