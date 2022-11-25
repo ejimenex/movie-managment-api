@@ -9,8 +9,11 @@
   <ItemGroup>
     <Folder Include="Configuration\" />
     <Folder Include="DependencyInjection\" />
-    <Folder Include="Repository\Abstract\" />
     <Folder Include="Repository\Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MovieApi.Domain\MovieApi.Domain.csproj" />
   </ItemGroup>
 
 </Project>

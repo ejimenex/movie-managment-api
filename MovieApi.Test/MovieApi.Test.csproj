@@ -15,4 +15,9 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MovieApi.BussinesLogic\MovieApi.BussinesLogic.csproj" />
+    <ProjectReference Include="..\MovieApi.DataAccess\MovieApi.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

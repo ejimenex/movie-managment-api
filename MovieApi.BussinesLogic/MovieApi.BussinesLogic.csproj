@@ -12,4 +12,9 @@
     <Folder Include="Profiles\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MovieApi.Common\MovieApi.Common.csproj" />
+    <ProjectReference Include="..\MovieApi.DataAccess\MovieApi.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
