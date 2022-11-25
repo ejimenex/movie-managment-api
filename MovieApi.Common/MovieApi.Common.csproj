@@ -10,7 +10,6 @@
     <Folder Include="Dto\" />
     <Folder Include="Constant\" />
     <Folder Include="Validation\" />
-    <Folder Include="Pagination\" />
   </ItemGroup>
 
 </Project>
