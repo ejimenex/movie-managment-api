@@ -11,6 +11,5 @@ namespace MovieApi.Common.Dto
         public int MovieId { get; set; }
         public int Ranking { get; set; }
         public string Commentary { get; set; }
-        public virtual MovieDto Movie { get; set; }
     }
 }

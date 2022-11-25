@@ -6,9 +6,12 @@
         {
 
         }
-        public override IQueryable<Movie> FindAll()
+        public override IQueryable<Movie> FindAll()=> base.FindAll().Include(c=> c.Reviews);
+            
+        
+        public override async Task<Movie> GetOne(int Id)
         {
-            return base.FindAll().Include(c=> c.Reviews);
+            return await context.Movie.Include(c=> c.Reviews).AsNoTracking().FirstOrDefaultAsync(c=> c.Id==Id);
         }
     }
 }
